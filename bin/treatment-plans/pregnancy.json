@@ -1,0 +1,61 @@
+[
+  {
+    "name": "Week 1",
+    "summary": [8, 6, 10],
+    "days": [
+      {
+        "day": "monday",
+        "activities": [
+          {
+            "type": "medication",
+            "time": "10 a.m",
+            "info": "Aspirine 2 pills"
+          },
+          {
+            "type": "doctors appointment",
+            "time": "3 p.m",
+            "info": "Greenwich Hospital"
+          }
+        ]
+      },
+      {
+        "day": "tuesday"
+      },
+      {
+        "day": "wednesday"
+      }
+    ]
+  }
+]
+
+[
+  {
+    "name": "Week 1",
+    "summary": [8, 6, 10],
+    "medication = hours": 14,
+    "treatment = hours": 12
+    "days": [
+      {
+        "day": "monday",
+        "activities": [
+          {
+            "type": "medication",
+            "time": "10 a.m",
+            "info": "Aspirine 2 pills"
+          },
+          {
+            "type": "doctors appointment",
+            "time": "3 p.m",
+            "info": "Greenwich Hospital"
+          }
+        ]
+      },
+      {
+        "day": "tuesday"
+      },
+      {
+        "day": "wednesday"
+      }
+    ]
+  }
+]

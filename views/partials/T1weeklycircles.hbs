@@ -1,34 +1,13 @@
-<div class="circles">
-  <a href="/teams/{{team}}/players/{{toLowerCase lastName}}
-    ">
-    <img class="card-img-top" src="{{photo}}" alt="Card image cap"></a>
-  <div class="card-body">
-    <h5 class="card-title">{{name}} {{lastName}}</h5>
-    <p class="card-text">{{team}}</p>
-  </div>
-  <div>
-    var myDoughnutChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: 8, 3, 5, 10
-    options: options
-    });
-  </div>
-
-</div>
-
-
-
-
 <canvas id="myChart" width="400" height="400"></canvas>
 <script>
   var ctx = document.getElementById('myChart').getContext('2d');
   var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'doughnut',
     data: {
       labels: ['Medication', 'Rest', 'Yellow', 'Green', 'Purple', 'Orange'],
       datasets: [{
         label: '# of Votes',
-        data: [week1.activity.time, 19, 3, 5, 2, 3],
+        data: [19, 3, 5, 2, 3, 1],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
