@@ -10,4 +10,8 @@ router.get("/partial", (req, res, next) => {
   res.render("partials/weekly-donut");
 });
 
+router.get("/summary", (req, res, next) => {
+  res.render("T1", { arr: [0, 1, 2] });
+});
+
 module.exports = router;

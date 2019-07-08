@@ -5,37 +5,42 @@
       "days": [
         {
           "day": "monday",
-          "date": "2019-02-31",
+          "date": "2019-07-08",
           "activities": [
             {
               "type": "medication",
+              "time": "9.00", // JS Date
+              "duration": "", // [hh, mm]
+              "info": "Aspirine, Dosage: 2 pills",
+              "location": ""
+              // _treatment: objectId
+            },
+            {
+              "type": "doctor",
               "time": "10.00",
-              "duration": 2,
-              "info": "Aspirine 2 pills"
+              "duration": "2",
+              "info": "Ultrasonic",
+              "location": ""
             },
             {
               "type": "medication",
               "time": "10.00",
               "duration": 2,
-              "info": "Aspirine 2 pills"
+              "info": "Aspirine 2 pills",
+              "location": ""
             },
             {
               "type": "medication",
               "time": "10.00",
               "duration": 2,
-              "info": "Aspirine 2 pills"
-            },
-            {
-              "type": "medication",
-              "time": "10.00",
-              "duration": 2,
-              "info": "Aspirine 2 pills"
+              "info": "Aspirine 2 pills",
+              "location": ""
             }
           ]
         },
         {
           "day": "tuesday",
-          "date": "2019-02-31",
+          "date": "2019-07-09",
           "activities": [
             {
               "type": "medication",
@@ -66,6 +71,7 @@
 
         {
           "day": "wednesday",
+          "date": "2019-07-10",
           "activities": [
             {
               "type": "medication",
@@ -95,6 +101,7 @@
         },
         {
           "day": "thursday",
+          "date": "2019-07-11",
           "activities": [
             {
               "type": "medication",
@@ -124,6 +131,7 @@
         },
         {
           "day": "friday",
+          "date": "2019-07-12",
           "activities": [
             {
               "type": "medication",

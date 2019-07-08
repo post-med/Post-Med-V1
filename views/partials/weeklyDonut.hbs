@@ -1,15 +1,16 @@
-<button id="data">Get data!</button>
-<canvas id="myChart" width="400" height="400"></canvas>
+{{this}}
+<button id="data-{{this}}">Get data!</button>
+<canvas id="myChart-{{this}}" width="400" height="400"></canvas>
 <script>
-  const baseUrl = "http://localhost:8000";
+  var baseUrl = "http://localhost:8000";
 
-  document.getElementById("data").onclick = event => {
+  document.getElementById("data-{{this}}").onclick = event => {
     axios
       .get(`${baseUrl}/weeks`)
       .then(response => {
         // fake API data
         console.log(response.data);
-        var ctx = document.getElementById('myChart').getContext('2d');
+        var ctx = document.getElementById('myChart-{{this}}').getContext('2d');
         // chart creation
         var myChart = new Chart(ctx, {
           type: 'doughnut',
