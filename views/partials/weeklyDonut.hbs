@@ -1,6 +1,7 @@
 {{this}}
-<canvas id="myChart-{{this}}" width="400" height="400"></canvas>
+<canvas id="myChart-{{this}}" width="50" height="50"></canvas>
 <script>
+  Chart.defaults.global.legend.display = false;
   var baseUrl = "http://localhost:8000";
   var ctx = document.getElementById('myChart-{{this}}').getContext('2d');
   // chart creation
@@ -30,9 +31,12 @@
         borderWidth: 1
       }]
     },
-{{!-- 
-    {{
+
+     {{!-- {{
       options: {
+        legend: {
+          display: false
+        },
         scales: {
           yAxes: [{
             ticks: {
@@ -41,6 +45,7 @@
           }]
         }
       }
-     --}}
-  })
+    }} --}}
+
+    })
 </script>
