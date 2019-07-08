@@ -3,17 +3,28 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    username: String,
-    password: String
+    username: {
+      type: String,
+      required: true,
+      unique: true
+    },
+    password: {
+      type: String,
+      required: true
+    },
+    class: {
+      type: String,
+      enum: ["patient", "doctor", "admin"]
+    },
+    _treatment: {
+      type: Schema.Types.ObjectId,
+      ref: "treatment"
+    }
   },
   {
     timestamps: {
       createdAt: "created_at",
       updatedAt: "updated_at"
-    },
-    treatment: {
-      type: Schema.Types.ObjectId,
-      ref: "treatment"
     }
   }
 );

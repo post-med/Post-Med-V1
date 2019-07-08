@@ -7,11 +7,11 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/partial", (req, res, next) => {
-  res.render("partials/weekly-donut");
+  res.render("partials/weeklyDonut");
 });
 
 router.get("/summary", (req, res, next) => {
-  res.render("T1", { arr: [0, 1, 2] });
+  res.render("T1", { arr: [0, 1, 2, 3, 4, 5] });
 });
 
 module.exports = router;

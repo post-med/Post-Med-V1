@@ -9,11 +9,10 @@
           "activities": [
             {
               "type": "medication",
-              "time": "9.00", // JS Date
-              "duration": "", // [hh, mm]
+              "time": "9.00",
+              "duration": "",
               "info": "Aspirine, Dosage: 2 pills",
               "location": ""
-              // _treatment: objectId
             },
             {
               "type": "doctor",
