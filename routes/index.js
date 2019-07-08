@@ -11,7 +11,7 @@ router.get("/partial", (req, res, next) => {
 });
 
 router.get("/summary", (req, res, next) => {
-  res.render("T1", { arr: [0, 1, 2, 3, 4, 5] });
+  res.render("overview", { arr: [0, 1, 2, 3, 4, 5] });
 });
 
 module.exports = router;

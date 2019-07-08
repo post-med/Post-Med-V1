@@ -8,9 +8,14 @@
 
   <label for="password">Password</label>
   <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
+
+  <br><br>
+
+  <label for="birthdate">Birthdate</label>
+  <input type="date" name="birthdate" id="birthdate">
+
   {{#if message }}
-    <div class="error-message">{{ message }}</div>
+  <div class="error-message">{{ message }}</div>
   {{/if}}
 
   <br><br>

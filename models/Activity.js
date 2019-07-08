@@ -4,12 +4,24 @@ const Schema = mongoose.Schema;
 const activitySchema = new Schema({
   class: {
     type: String,
+    required: true,
     enum: ["medication", "doctor", "course", "work"]
   },
-  startTime: Date,
-  endTime: Date,
-  info: String,
-  mapsLocation: String,
+  startTime: {
+    type: Date,
+    required: true
+  },
+  endTime: {
+    type: Date,
+    required: true
+  },
+  info: {
+    type: String,
+    required: true
+  },
+  mapsLocation: {
+    type: String
+  },
   _treatment: Schema.Types.ObjectId
 });
 

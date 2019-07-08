@@ -1,2 +1,52 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div id="start-page">
+  <h2>Welcome to {{title}}</h2>
+  <br><br>
+  <div class="col-sm-12 col-lg-6">
+    <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
+  </div>
+  <br><br>
+  <div class="float-right">
+    <h2>Signup</h2>
+
+    <form action="/auth/signup" method="POST" id="form-container">
+      <label for="username-signup">Username</label><br>
+      <input id="username-signup" type="text" name="username-signup" placeholder="username">
+
+      <br><br>
+
+      <label for="password-signup">Password</label><br>
+      <input id="password-signup" type="password-signup" name="password-signup" placeholder="password">
+
+      <br><br>
+
+      <label for="birthdate-signup">Birthdate</label><br>
+      <input type="date" name="birthdate-signup" id="birthdate-signup">
+
+      {{#if message }}
+      <div class="error-message">{{ message }}</div>
+      {{/if}}
+      <br><br>
+      <a href="/">sign up as a doctor?</a>
+      <br><br>
+      <button>Create account</button>
+    </form>
+  </div>
+
+  <br><br>
+
+
+  <h2>Login</h2>
+
+  <form action="/login" method="POST" id="form-container">
+    <input id="username-login" type="text" name="username-login" placeholder="username">
+
+    <input id="password-login" type="password-login" name="password-login" placeholder="password">
+    <br>
+    {{#if message }}
+    <div class="error-message">{{ message }}</div>
+    {{/if}}
+    <button>Login</button>
+
+  </form>
+
+</div>

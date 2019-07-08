@@ -16,6 +16,7 @@ const userSchema = new Schema(
       type: String,
       enum: ["patient", "doctor", "admin"]
     },
+    birthDate: Date,
     _treatment: {
       type: Schema.Types.ObjectId,
       ref: "treatment"
