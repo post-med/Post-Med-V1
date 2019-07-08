@@ -1,0 +1,157 @@
+{
+  "weeks": [
+    {
+      "id": 1,
+      "days": [
+        {
+          "day": "monday",
+          "date": "2019-02-31",
+          "activities": [
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            },
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            },
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            },
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            }
+          ]
+        },
+        {
+          "day": "tuesday",
+          "date": "2019-02-31",
+          "activities": [
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            },
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            },
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            },
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            }
+          ]
+        },
+
+        {
+          "day": "wednesday",
+          "activities": [
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            },
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            },
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            },
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            }
+          ]
+        },
+        {
+          "day": "thursday",
+          "activities": [
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            },
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            },
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            },
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            }
+          ]
+        },
+        {
+          "day": "friday",
+          "activities": [
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            },
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            },
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            },
+            {
+              "type": "medication",
+              "time": "10.00", //check time format saving and calculating
+              "duration": 2,
+              "info": "Aspirine 2 pills"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
