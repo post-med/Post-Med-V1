@@ -7,7 +7,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/partial", (req, res, next) => {
-  res.render("partials/T1weeklycircles");
+  res.render("partials/weekly-donut");
 });
 
 module.exports = router;
