@@ -20,13 +20,22 @@ const userSchema = new Schema(
       type: String,
       required: true
     },
+    country: {
+      type: String,
+      required: true
+    },
+    birthDate: Date,
+    gender: {
+      type: String,
+      enum: ["male", "female", "other"],
+      required: true
+    },
     class: {
       type: String,
       required: true,
       enum: ["patient", "doctor", "admin"],
       default: "patient"
     },
-    birthDate: Date,
     _treatment: {
       type: Schema.Types.ObjectId,
       ref: "treatment"

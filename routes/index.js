@@ -9,7 +9,7 @@ const bcryptSalt = 12;
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-  res.render("index");
+  res.render("index"), { message: req.flash("error") };
 });
 
 /* Login */
@@ -25,17 +25,47 @@ router.post(
 
 /* Signup */
 router.post("/signup", (req, res, next) => {
-  const { username, password, birthdate } = req.body;
-  if (!username || !password) {
-    res.render("/", {
-      message: "Username and password are required."
+  const {
+    firstName,
+    lastName,
+    country,
+    birthDate,
+    gender,
+    email,
+    password
+  } = req.body;
+  const regex = RegExp("/([12]d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]d|3[01]))/");
+  console.log(firstName, lastName, country, birthDate, gender, email);
+  if (!firstName || !lastName) {
+    res.render("index", {
+      signMessage: "Please enter first and lastname."
+    });
+    return;
+  } else if (!country === "Country") {
+    res.render("index", {
+      signMessage: "Please enter your country."
+    });
+    return;
+  } else if (!birthDate || regex.test(birthDate) === false) {
+    res.render("index", {
+      signMessage: "Enter a valid birthdate."
+    });
+    return;
+  } else if (gender === "select") {
+    res.render("index", {
+      signMessage: "Select a gender."
+    });
+    return;
+  } else if (!email || !password) {
+    res.render("index", {
+      signMessage: "Username and password are required."
     });
     return;
   }
 
-  User.findOne({ username }, "username", (err, user) => {
-    if (user) {
-      res.render("/", { message: "The username is already taken." });
+  User.findOne({ email }, "email", (err, user) => {
+    if (email) {
+      res.render("index", { signMessage: "Account exists already." });
       return;
     }
 
@@ -43,17 +73,22 @@ router.post("/signup", (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
 
     const newUser = new User({
-      username,
-      password: hashPass
+      email,
+      password: hashPass,
+      firstName,
+      lastName,
+      country,
+      birthDate,
+      gender
     });
 
     newUser
       .save()
       .then(() => {
-        res.redirect("/");
+        res.redirect("/summary");
       })
       .catch(err => {
-        res.render("/", { message: "Something went wrong" });
+        res.render("overview", { signMessage: "Something went wrong" });
       });
   });
 });
