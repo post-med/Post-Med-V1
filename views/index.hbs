@@ -1,52 +1,62 @@
-<div id="start-page">
-  <h2>Welcome to {{title}}</h2>
-  <br><br>
-  <div class="col-sm-12 col-lg-6">
+<div class="container-fluid row" id="start-page">
+  <div class="container col-md-6" id="left-side">
+    <h2>Welcome to {{title}}</h2>
+    <br><br>
     <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
-  </div>
-  <br><br>
-  <div class="float-right">
-    <h2>Signup</h2>
 
-    <form action="/auth/signup" method="POST" id="form-container">
-      <label for="username-signup">Username</label><br>
-      <input id="username-signup" type="text" name="username-signup" placeholder="username">
+    <br><br>
 
-      <br><br>
 
-      <label for="password-signup">Password</label><br>
-      <input id="password-signup" type="password-signup" name="password-signup" placeholder="password">
+    <h2>Login</h2>
+    <form>
+      <div class="row">
+        <div class="col-md-6" style="padding-left: 0">
+          <input type="text" class="form-control" placeholder="Email">
+        </div>
+        <div class="col-md-6" style="padding-left: 0">
+          <input type="text" class="form-control" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary"></button>
+      </div>
+    </form>
+    {{!-- <form action="/login" method="POST" id="form-container">
+      <input id="username-login" type="text" name="username-login" placeholder="username">
 
-      <br><br>
-
-      <label for="birthdate-signup">Birthdate</label><br>
-      <input type="date" name="birthdate-signup" id="birthdate-signup">
-
+      <input id="password-login" type="password-login" name="password-login" placeholder="password">
+      <br>
       {{#if message }}
       <div class="error-message">{{ message }}</div>
       {{/if}}
-      <br><br>
-      <a href="/">sign up as a doctor?</a>
-      <br><br>
-      <button>Create account</button>
-    </form>
+
+    </form> --}}
   </div>
 
-  <br><br>
+  <div class="container col-md-6" id="right-side">
+    <div class="ml-auto col-md-6" style="margin-top: 20%">
+      <h2>Signup</h2>
 
+      <form action="/auth/signup" method="POST" id="form-container">
+        <label for="username-signup">Username</label><br>
+        <input id="username-signup" type="text" name="username-signup" placeholder="username">
 
-  <h2>Login</h2>
+        <br><br>
 
-  <form action="/login" method="POST" id="form-container">
-    <input id="username-login" type="text" name="username-login" placeholder="username">
+        <label for="password-signup">Password</label><br>
+        <input id="password-signup" type="password-signup" name="password-signup" placeholder="password">
 
-    <input id="password-login" type="password-login" name="password-login" placeholder="password">
-    <br>
-    {{#if message }}
-    <div class="error-message">{{ message }}</div>
-    {{/if}}
-    <button>Login</button>
+        <br><br>
 
-  </form>
+        <label for="birthdate-signup">Birthdate</label><br>
+        <input type="date" name="birthdate-signup" id="birthdate-signup">
 
+        {{#if message }}
+        <div class="error-message">{{ message }}</div>
+        {{/if}}
+        <br><br>
+        <button>Create account</button>
+        <br><br>
+        <a href="/">Sign up as a doctor?</a>
+      </form>
+    </div>
+  </div>
 </div>

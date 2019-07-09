@@ -19,4 +19,9 @@ a {
 #start-page {
   margin-top: 8vh; }
 
+#right-side {
+  height: 80vh;
+  background-image: url("/images/undraw_work_time_lhoj.svg");
+  background-size: cover; }
+
 /*# sourceMappingURL=style.css.map */
