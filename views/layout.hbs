@@ -32,10 +32,12 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
-      <a class="nav-item nav-link active" href="#">Treatments<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="/summary">Treatments<span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="#">Profile</a>
       <a class="nav-item nav-link" href="#">About</a>
-      <a class="nav-item nav-link disabled" href="#">Sign out</a>
+      {{#if user}}
+      <a class="nav-item nav-link" href="/logout">Sign out</a>
+      {{/if}}
     </div>
   </div>
 </nav>

@@ -3,13 +3,21 @@ const passport = require("passport");
 const router = express.Router();
 const User = require("../models/User");
 
+const loginCheck = () => {
+  return (req, res, next) => {
+    if (req.isAuthenticated()) next();
+    else res.redirect("/");
+  };
+};
+
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 12;
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-  res.render("index"), { message: req.flash("error") };
+  console.log(req.user);
+  res.render("index", { message: req.flash("error"), user: req.user });
 });
 
 /* Login */
@@ -34,8 +42,7 @@ router.post("/signup", (req, res, next) => {
     email,
     password
   } = req.body;
-  const regex = RegExp("/([12]d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]d|3[01]))/");
-  console.log(firstName, lastName, country, birthDate, gender, email);
+  const regex = RegExp(/([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/);
   if (!firstName || !lastName) {
     res.render("index", {
       signMessage: "Please enter first and lastname."
@@ -63,8 +70,8 @@ router.post("/signup", (req, res, next) => {
     return;
   }
 
-  User.findOne({ email }, "email", (err, user) => {
-    if (email) {
+  User.findOne({ email }, (err, user) => {
+    if (user) {
       res.render("index", { signMessage: "Account exists already." });
       return;
     }
@@ -85,7 +92,7 @@ router.post("/signup", (req, res, next) => {
     newUser
       .save()
       .then(() => {
-        res.redirect("/summary");
+        req.login(newUser, () => res.redirect("/summary"));
       })
       .catch(err => {
         res.render("overview", { signMessage: "Something went wrong" });
@@ -93,12 +100,19 @@ router.post("/signup", (req, res, next) => {
   });
 });
 
+/* Logout */
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/");
+});
+
 /* For Testing */
 router.get("/partial", (req, res, next) => {
   res.render("partials/weeklyDonut");
 });
 
-router.get("/summary", (req, res, next) => {
+router.get("/summary", loginCheck(), (req, res, next) => {
+  console.log(req.user);
   res.render("overview", {
     arr: [
       0,
@@ -137,7 +151,8 @@ router.get("/summary", (req, res, next) => {
       33,
       34,
       35
-    ]
+    ],
+    user: req.user
   });
 });
 

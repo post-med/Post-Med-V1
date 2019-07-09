@@ -49,13 +49,14 @@
         {{/if}}
       </div>
     </form>
+    <button id="callSignup">Sign Up</button>
   </div>
 
   <div class="container col-md-6" id="right-side">
     <div class="ml-auto col-md-6" style="margin-top: 20%">
-      <h2>Signup</h2>
 
-      <form action="/signup" method="POST" id="signup-form">
+      <form action="/signup" method="POST" id="signup-form" style="display: none;">
+        <h2>Signup</h2>
         <div class="row">
           <input class="form-control" type="text" name="firstName" placeholder="Firstname">
         </div>
@@ -78,7 +79,8 @@
         <div class="row">
           <div class="col-md-6 p-0">
             <label for="signup-birthdate">Birthdate</label>
-            <input type="text" class="form-control" id="signup-birthdate" placeholder="YYYY-MM-DD" name="birthDate">
+            <input type="text" class="form-control" pattern="([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))"
+              id="signup-birthdate" placeholder="YYYY-MM-DD" name="birthDate">
           </div>
           <div class="col-md-5 p-0 ml-auto">
             <label for="signup-gender">Gender</label>

@@ -15,3 +15,7 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidepanel").style.width = "0";
 }
+
+let signupButton = document.getElementById("callSignup");
+let signupForm = document.getElementById("signup-form");
+signupButton.addEventListener(onclick, (signupForm.style.display = "block"));
