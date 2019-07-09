@@ -8,54 +8,90 @@
 
 
     <h2>Login</h2>
-    <form>
+    <form action="/login" method="POST" id="login-form">
       <div class="row">
-        <div class="col-md-6" style="padding-left: 0">
-          <input type="text" class="form-control" placeholder="Email">
+        <div class="col-md-5" style="padding-left: 0">
+          <input type="text" class="form-control" placeholder="Email" name="login-email">
         </div>
-        <div class="col-md-6" style="padding-left: 0">
-          <input type="text" class="form-control" placeholder="Password">
+        <div class="col-md-5" style="padding-left: 0">
+          <input type="text" class="form-control" placeholder="Password" name="login-password">
         </div>
-        <button type="submit" class="btn btn-primary"></button>
+        <div class="col-md-2" style="padding-left: 0">
+          <button type="submit" class="form-control btn btn-primary">Login</button>
+        </div>
+        <br>
+        {{#if message }}
+        <div class="error-message">{{ message }}</div>
+        {{/if}}
       </div>
     </form>
-    {{!-- <form action="/login" method="POST" id="form-container">
-      <input id="username-login" type="text" name="username-login" placeholder="username">
-
-      <input id="password-login" type="password-login" name="password-login" placeholder="password">
-      <br>
-      {{#if message }}
-      <div class="error-message">{{ message }}</div>
-      {{/if}}
-
-    </form> --}}
   </div>
 
   <div class="container col-md-6" id="right-side">
     <div class="ml-auto col-md-6" style="margin-top: 20%">
       <h2>Signup</h2>
 
-      <form action="/auth/signup" method="POST" id="form-container">
-        <label for="username-signup">Username</label><br>
-        <input id="username-signup" type="text" name="username-signup" placeholder="username">
-
-        <br><br>
-
-        <label for="password-signup">Password</label><br>
-        <input id="password-signup" type="password-signup" name="password-signup" placeholder="password">
-
-        <br><br>
-
-        <label for="birthdate-signup">Birthdate</label><br>
-        <input type="date" name="birthdate-signup" id="birthdate-signup">
-
+      <form action="/signup" method="POST" id="signup-form">
+        <div class="row">
+          <input class="form-control" type="text" name="signup-first" placeholder="Firstname">
+        </div>
+        <br>
+        <div class="row">
+          <input class="form-control" type="text" name="signup-last" placeholder="Lastname">
+        </div>
+        <br>
+        <div class="row">
+          <select class="form-control" name="signup-country">
+            <option selected>Country</option>
+            <option>United States</option>
+            <option>Germany</option>
+            <option>France</option>
+            <option>Spain</option>
+            <option>Italy</option>
+          </select>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-6 p-0">
+            <label for="signup-birthdate">Birthdate</label>
+            <input type="text" class="form-control" id="signup-birthdate" placeholder="YYYY-MM-DD"
+              name="signup-birthdate" required>
+            <div class="invalid-tooltip">
+              Please provide a valid birthdate in the following format: YYYY-MM-DD
+            </div>
+          </div>
+          <div class="col-md-5 p-0 ml-auto">
+            <label for="signup-gender">Gender</label>
+            <select class="form-control" id="signup-gender" name="signup-gender">
+              <option selected>select</option>
+              <option>male</option>
+              <option>female</option>
+              <option>other</option>
+            </select>
+            <div class="invalid-tooltip">
+              Please select a gender.
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <input class="form-control" type="text" name="username-signup" placeholder="Email" name="signup-email">
+        </div>
+        <br>
+        <div class="row">
+          <input class="form-control" type="password-signup" name="signup-password" placeholder="password">
+        </div>
         {{#if message }}
         <div class="error-message">{{ message }}</div>
         {{/if}}
         <br><br>
-        <button>Create account</button>
-        <br><br>
-        <a href="/">Sign up as a doctor?</a>
+        <div class="row">
+          <button type="submit" class="form-control btn btn-primary">Create account</button>
+        </div>
+        <br>
+        <div class="row">
+          <a href="/auth/signup">Sign up as a doctor?</a>
+        </div>
       </form>
     </div>
   </div>
