@@ -2,6 +2,7 @@ const express = require("express");
 const passport = require("passport");
 const router = express.Router();
 const User = require("../models/User");
+const Activity = require("../models/Activity");
 
 const loginCheck = () => {
   return (req, res, next) => {
@@ -117,56 +118,56 @@ router.get("/partial", (req, res, next) => {
 // This is the redirect for the login checker, Dom added a middle ware function login
 // Checker to show the page.
 router.get("/summary", loginCheck(), (req, res, next) => {
-  console.log(req.user);
-  res.render("overview", {
-    arr: [
-      0,
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21,
-      22,
-      23,
-      24,
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31,
-      32,
-      33,
-      34,
-      35
-    ],
-    user: req.user
-  });
+  Activity.find({ startTime: { $gte: new Date("2019-06-17") } })
+    .then(data => {
+      res.render("overview", {
+        arr: [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        user: req.user,
+        data
+      });
+    })
+    .catch(err => console.log(err));
 });
 
 // Ani adding router to the weekly page
-
 router.get("/weeks", loginCheck(), (req, res, next) => {
-  console.log(req.user);
-  console.log(req.params);
-  // const id = req.params.arr;
   res.render("weeks", { user: req.user });
 });
 
