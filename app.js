@@ -64,6 +64,14 @@ hbs.registerHelper("ifUndefined", (value, options) => {
     return options.fn(this);
   }
 });
+// hbs.registerHelper("docCheck", user => user && user.hash === "doctor");
+hbs.registerHelper("ifvalue", function(conditional, options) {
+  if (options.hash.value === conditional) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
 
 // default value for title local
 app.locals.title = "Post-Med";

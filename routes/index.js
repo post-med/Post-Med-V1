@@ -58,7 +58,7 @@ router.post("/signup", (req, res, next) => {
       signMessage: "Enter a valid birthdate."
     });
     return;
-  } else if (gender === "select") {
+  } else if (gender === "gender") {
     res.render("index", {
       signMessage: "Select a gender."
     });

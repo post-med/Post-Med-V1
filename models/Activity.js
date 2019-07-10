@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const activitySchema = new Schema({
-  class: {
+  category: {
     type: String,
     required: true,
     enum: ["medication", "doctor", "course", "work"]
@@ -22,7 +22,7 @@ const activitySchema = new Schema({
   mapsLocation: {
     type: String
   },
-  _treatment: Schema.Types.ObjectId
+  _treatment: String
 });
 
 const Activity = mongoose.model("Activity", activitySchema);
