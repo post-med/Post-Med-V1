@@ -177,4 +177,15 @@ router.get("/about", (req, res, next) => {
   res.render("about");
 });
 
+// const PregTips = [
+//   "Even when you're still trying to conceive, it's smart to start taking prenatal vitamins. Your baby's neural cord, which becomes the brain and spinal cord, develops within the , so it's important you get essential nutrients – like folic acid, calcium, and iron – from the very start.",
+//   "Staying active is important for your general health and can help you reduce stress, control your weight, improve circulation, boost your mood, and sleep better. Take a  or walk at least 15-20 minutes every day at a moderate pace, in cool, shaded areas or indoors in order to prevent overheating.",
+//   "Pilates, yoga, swimming, and walking are also great activities for most pregnant women, but be sure to check with your doctor first before starting any new routine. Aim for 30 minutes of exercise most days of the week. Listen to your body, though, and don't overdo it.",
+//   "Determined to have a dobula? Counting on that epidural? Write down your wishes and give a copy to everyone involved with the delivery. According to the American Pregnancy Association",
+//   "attending a childbirth class will help you feel more prepared for delivery. Not only will you have the chance to learn more about childbirth and infant care, but you can ask specific questions and voice any concerns. You'll also become more acquainted with the facility and its staff.",
+//   "Because of their link to birth defects, miscarriage, and other problems, you should avoid tobacco, alcohol, illicit drugs, and even solvents such as paint thinners and nail polish remover while pregnant. Smoking cigarettes, for example, decreases oxygen flow to your baby",
+//   "Certain essential oils can cause uterine contractions, especially during the first and second trimester, so check with your massage therapist to make sure only safe ones are being used. On the taboo list: juniper, rosemary, and clary sage."
+// "In addition to drinking 8-10 glasses of water each day, you should eat five or six well-balanced meals with plenty of folate-rich foods like fortified cereals, asparagus, lentils, wheat germ, oranges, and orange juice."
+// ];
+
 module.exports = router;
