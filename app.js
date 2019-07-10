@@ -64,7 +64,7 @@ hbs.registerHelper("ifUndefined", (value, options) => {
     return options.fn(this);
   }
 });
-// hbs.registerHelper("docCheck", user => user && user.hash === "doctor");
+
 hbs.registerHelper("ifvalue", function(conditional, options) {
   if (options.hash.value === conditional) {
     return options.fn(this);
@@ -72,6 +72,8 @@ hbs.registerHelper("ifvalue", function(conditional, options) {
     return options.inverse(this);
   }
 });
+
+hbs.registerHelper("formatDate", date => date.toDateString().substring(4));
 
 // default value for title local
 app.locals.title = "Post-Med";

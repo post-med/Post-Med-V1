@@ -1,18 +1,14 @@
 body {
-  margin-top: 50px;
   font: 14px "Courier", Helvetica, Arial, sans-serif; }
 
 a {
   color: #00b7ff; }
 
-#navbar {
-  height: 6vh;
-  align-content: center; }
-
 #p-img {
   height: 6vh; }
 
 .navbar {
+  height: 6vh;
   padding-top: 0;
   padding-bottom: 0; }
 
@@ -41,7 +37,7 @@ a {
 
 /* The sidepanel menu */
 .sidepanel {
-  height: 250px;
+  height: 100vh;
   /* Specify a height */
   width: 0;
   /* 0 width - change this with JavaScript */
@@ -49,7 +45,7 @@ a {
   /* Stay in place */
   z-index: 1;
   /* Stay on top */
-  top: 400px;
+  top: 0;
   left: 0;
   background-color: #eff1f3;
   /* Black*/
@@ -70,7 +66,8 @@ a {
   transition: 0.3s; }
 
 /* When you mouse over the navigation links, change their color */
-.sidepanel a:hover {
+.sidepanel > a:nth-child(n + 2):hover {
+  background-color: #444;
   color: #f1f1f1; }
 
 /* Position and style the close button (top right corner) */

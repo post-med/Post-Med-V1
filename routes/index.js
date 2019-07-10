@@ -167,7 +167,7 @@ router.get("/weeks", loginCheck(), (req, res, next) => {
   console.log(req.user);
   console.log(req.params);
   // const id = req.params.arr;
-  res.render("weeks");
+  res.render("weeks", { user: req.user });
 });
 
 module.exports = router;
