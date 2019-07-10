@@ -27,7 +27,16 @@ a {
 #overview {
   background-image: url("/images/Endless-Constellation.svg"); }
 
+#circles {
+  background-image: url("/images/Endless-Constellation.svg");
+  padding: 20px;
+  object-fit: contain; }
+
 #overview-top {
+  background-image: url("/images/Endless-Constellation.svg"); }
+
+#overview-top2 {
+  height: 20vh;
   background-image: url("/images/Endless-Constellation.svg"); }
 
 /* The sidepanel menu */
@@ -84,5 +93,21 @@ a {
 
 .openbtn:hover {
   background-color: #444; }
+
+footer {
+  width: 100vw;
+  text-align: center;
+  padding: 50px 100px; }
+
+footer .link {
+  color: #43a3e6;
+  text-decoration: none; }
+
+footer li {
+  list-style-type: none; }
+
+.dark-background {
+  background: black;
+  color: white; }
 
 /*# sourceMappingURL=style.css.map */

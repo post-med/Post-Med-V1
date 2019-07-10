@@ -6,6 +6,7 @@ const User = require("../models/User");
 const loginCheck = () => {
   return (req, res, next) => {
     if (req.isAuthenticated()) next();
+    //What is happening here?
     else res.redirect("/");
   };
 };
@@ -19,6 +20,8 @@ router.get("/", (req, res, next) => {
   console.log(req.user);
   res.render("index", { message: req.flash("error"), user: req.user });
 });
+
+// Dominik what exactly was the error that you had?
 
 /* Login */
 router.post(
@@ -111,6 +114,8 @@ router.get("/partial", (req, res, next) => {
   res.render("partials/weeklyDonut");
 });
 
+// This is the redirect for the login checker, Dom added a middle ware function login
+// Checker to show the page.
 router.get("/summary", loginCheck(), (req, res, next) => {
   console.log(req.user);
   res.render("overview", {
@@ -154,6 +159,15 @@ router.get("/summary", loginCheck(), (req, res, next) => {
     ],
     user: req.user
   });
+});
+
+// Ani adding router to the weekly page
+
+router.get("/weeks", loginCheck(), (req, res, next) => {
+  console.log(req.user);
+  console.log(req.params);
+  // const id = req.params.arr;
+  res.render("weeks");
 });
 
 module.exports = router;
