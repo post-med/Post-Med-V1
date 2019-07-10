@@ -65,6 +65,10 @@ hbs.registerHelper("ifUndefined", (value, options) => {
   }
 });
 
+hbs.registerHelper("stringy", chartText => {
+  return JSON.stringify(chartText);
+});
+
 // default value for title local
 app.locals.title = "Post-Med";
 

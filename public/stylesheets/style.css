@@ -35,6 +35,12 @@ a {
 #overview-top {
   background-image: url("/images/Endless-Constellation.svg"); }
 
+.myOverview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
 #overview-top2 {
   height: 20vh;
   background-image: url("/images/Endless-Constellation.svg"); }
