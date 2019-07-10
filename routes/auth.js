@@ -2,60 +2,73 @@ const express = require("express");
 const passport = require("passport");
 const router = express.Router();
 const User = require("../models/User");
+const Activity = require("../models/Activity");
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 12;
 
-router.get("/login", (req, res, next) => {
-  res.render("auth/login", { message: req.flash("error") });
-});
+// Role-checker middleware
+const roleCheck = () => {
+  return (req, res, next) => {
+    if (req.user && req.user.role === "doctor") next();
+    else res.redirect("/");
+  };
+};
 
-router.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/auth/login",
-    failureFlash: true,
-    passReqToCallback: true
-  })
-);
-
-router.get("/signup", (req, res, next) => {
-  res.render("auth/signup");
-});
-
-router.post("/signup", (req, res, next) => {
-  const { username, password, birthdate } = req.body;
-  if (!username || !password) {
-    res.render("auth/signup", {
-      message: "Username and password are required."
+/* Code Here */
+router.post("/addActivity", roleCheck(), (req, res, next) => {
+  const treatment = "Preg-246";
+  const { category, info, stTi, endTi, stDa, endDa } = req.body;
+  const startTime = new Date(`${stDa}T${stTi}:00`);
+  const endTime = new Date(`${endDa}T${endTi}:00`);
+  console.log(startTime, endTime);
+  let mapsLocation = "";
+  if (category === "doctor") mapsLocation = "";
+  if (category === "select") {
+    res.render("auth/addActivity", {
+      message: "Please choose type of activity."
     });
     return;
+  } else if (
+    stDa === "select" ||
+    stTi === "select" ||
+    endDa === "select" ||
+    endTi === "select"
+  ) {
+    res.render("auth/addActivity", {
+      message: "Please fill in all fields for date and Time."
+    });
+    return;
+  } else if (!info) {
+    res.render("auth/addActivity", {
+      message: "Please add information in the field."
+    });
   }
 
-  User.findOne({ username }, "username", (err, user) => {
-    if (user) {
-      res.render("auth/signup", { message: "The username is already taken." });
-      return;
-    }
+  const newActivity = new Activity({
+    category,
+    startTime,
+    endTime,
+    info,
+    mapsLocation,
+    _treatment: treatment
+  });
 
-    const salt = bcrypt.genSaltSync(bcryptSalt);
-    const hashPass = bcrypt.hashSync(password, salt);
-
-    const newUser = new User({
-      username,
-      password: hashPass
+  newActivity
+    .save()
+    .then(() => res.redirect("/auth/addActivity"))
+    .catch(err => {
+      res.render("auth/addActivity", { message: err });
     });
+});
+/* Code Here */
 
-    newUser
-      .save()
-      .then(() => {
-        res.redirect("/");
-      })
-      .catch(err => {
-        res.render("auth/signup", { message: "Something went wrong" });
-      });
+router.get("/addActivity", roleCheck(), (req, res, next) => {
+  console.log(req.user);
+  res.render("auth/addActivity", {
+    message: req.flash("error"),
+    user: req.user
   });
 });
 

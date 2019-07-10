@@ -32,8 +32,13 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
+      {{#ifvalue user.role value="doctor"}}
+      <a class="nav-item nav-link" href="/auth/addActivity">Add an Activity</a>
+      {{/ifvalue}}
+      {{#if user}}
       <a class="nav-item nav-link active" href="/summary">Treatments<span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Profile</a>
+      <a class="nav-item nav-link" href="#" onclick="openNav()">Profile</a>
+      {{/if}}
       <a class="nav-item nav-link" href="#">About</a>
       {{#if user}}
       <a class="nav-item nav-link" href="/logout">Sign out</a>
@@ -50,16 +55,18 @@
   <script src="/javascripts/script.js"></script>
 
   {{!-- Adding a Side panel from : https://www.w3schools.com/howto/howto_js_collapse_sidepanel.asp --}}
+  {{#if user}}
   <div id="mySidepanel" class="sidepanel">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="#">About</a>
     <a href="#">{{user.firstName}} {{user.lastName}} </a>
-    <a href="#">DOB: {{user.birthDate}} </a>
+    <a href="#">DOB: {{formatDate user.birthDate}} </a>
     <a href="#">{{user.gender}}</a>
     <a href="#">{{user.id}} </a>
     <a href="#">Pregnancy</a>
     <a href="#">Cancer</a>
   </div>
+  {{/if}}
 
 
   {{!-- Footer from Ironhack Class --}}

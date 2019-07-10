@@ -61,7 +61,7 @@ router.post("/signup", (req, res, next) => {
       signMessage: "Enter a valid birthdate."
     });
     return;
-  } else if (gender === "select") {
+  } else if (gender === "gender") {
     res.render("index", {
       signMessage: "Select a gender."
     });
@@ -167,7 +167,7 @@ router.get("/weeks", loginCheck(), (req, res, next) => {
   console.log(req.user);
   console.log(req.params);
   // const id = req.params.arr;
-  res.render("weeks");
+  res.render("weeks", { user: req.user });
 });
 
 module.exports = router;

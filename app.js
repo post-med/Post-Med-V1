@@ -69,6 +69,16 @@ hbs.registerHelper("stringy", chartText => {
   return JSON.stringify(chartText);
 });
 
+hbs.registerHelper("ifvalue", function(conditional, options) {
+  if (options.hash.value === conditional) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
+hbs.registerHelper("formatDate", date => date.toDateString().substring(4));
+
 // default value for title local
 app.locals.title = "Post-Med";
 

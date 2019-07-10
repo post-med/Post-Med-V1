@@ -30,7 +30,7 @@ const userSchema = new Schema(
       enum: ["male", "female", "other"],
       required: true
     },
-    class: {
+    role: {
       type: String,
       required: true,
       enum: ["patient", "doctor", "admin"],
@@ -39,6 +39,9 @@ const userSchema = new Schema(
     _treatment: {
       type: Schema.Types.ObjectId,
       ref: "treatment"
+    },
+    docKey: {
+      type: String
     }
   },
   {
