@@ -36,7 +36,18 @@ a {
   background-image: url("/images/Endless-Constellation.svg");
 }
 
+#circles {
+  background-image: url("/images/Endless-Constellation.svg");
+  padding: 20px;
+  object-fit: contain;
+}
+
 #overview-top {
+  background-image: url("/images/Endless-Constellation.svg");
+}
+
+#overview-top2 {
+  height: 20vh;
   background-image: url("/images/Endless-Constellation.svg");
 }
 
@@ -93,4 +104,22 @@ a {
 
 .openbtn:hover {
   background-color: #444;
+}
+
+footer {
+  width: 100vw;
+  text-align: center;
+  padding: 50px 100px;
+  // margin: 20px 0 0px 0;
+}
+footer .link {
+  color: rgb(67, 163, 230);
+  text-decoration: none;
+}
+footer li {
+  list-style-type: none;
+}
+.dark-background {
+  background: black;
+  color: white;
 }

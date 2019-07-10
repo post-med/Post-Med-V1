@@ -1,37 +1,34 @@
 <div class="container-fluid row" id="start-page">
   <div class="container col-md-6" id="left-side">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <h2 color=red;>Prescriptions Simplified.<br>
       Healthcare Visualised.<br>
 
     </h2>
     <br><br>
-    <p>There are at-least 100 applications to deliver you drugs to door, remind you to take them on time to build drug
+    <p>There are at-least 100 applications to deliver drugs to your door, remind you to take them on time to build drug
       dose consistency, and several others to monitor your health.<b> The American National Health Bureau hopes they
         work as
         efficiently as they promise.</b>
       <br><br>
     </p>
-    <h5>
+    <h6>
       <b>Post-Med helps tackle the 3.82B USD loss globally by implementing visual simplicity and inclusivity for users
         of all age
         education and technical ability.</b>
-    </h5>
-    <p>
-      <br><br>
-      Hospitals are complex machines but the most efficient ones
-      are simple and easier to navigate than your house, especially in distress. Similarly we help remove Age,
-      Education, and Digital Nativeness Bias which in the medical world are responsible for 7000 deaths annually in USA
-      alone with 3.82B worldwide lost in efficiency due to complicated interfaces.
-      <br><br>
-      Plus we work offline too, meaning, a doctor can send a visual prescription out to the remotest part of the world
-      without being concerned about language and educational barrier.
+    </h6>
 
-    </p>
 
     <br><br>
 
 
-    <h2>Login</h2>
+    {{!-- <h2>Login</h2> --}}
     <form action="/login" method="POST" id="login-form">
       <div class="row">
         <div class="col-md-5" style="padding-left: 0">
@@ -78,14 +75,14 @@
         <br>
         <div class="row">
           <div class="col-md-6 p-0">
-            <label for="signup-birthdate">Birthdate</label>
+            {{!-- <label for="signup-birthdate"></label> --}}
             <input type="text" class="form-control" pattern="([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))"
-              id="signup-birthdate" placeholder="YYYY-MM-DD" name="birthDate">
+              id="signup-birthdate" placeholder="B:YYYY-MM-DD" name="birthDate">
           </div>
           <div class="col-md-5 p-0 ml-auto">
-            <label for="signup-gender">Gender</label>
+            {{!-- <label for="signup-gender"></label> --}}
             <select class="form-control" id="signup-gender" name="gender">
-              <option selected>select</option>
+              <option selected>gender</option>
               <option>male</option>
               <option>female</option>
               <option>other</option>
@@ -118,14 +115,15 @@
 
 
 <section class="ftco-section services-section bg-primary">
+  <div style="height: 50px;"></div>
   <div class="container">
     <div class="row d-flex">
       <div class="col-md-3 d-flex align-self-stretch ftco-animate">
         <div class="media block-6 services d-block">
-          <div class="icon"><span class="flaticon-resume"></span></div>
+          {{!-- <div class="icon"><span class="flaticon-resume"></span></div> --}}
           <div class="media-body">
-            <h3 class="heading mb-3">Search Millions of Jobs</h3>
-            <p>A small river named Duden flows by their place and supplies.</p>
+            <h3 class="heading mb-3" style="color:white;">Search Millions of Jobs</h3>
+            <p style="color:white;">A small river named Duden flows by their place and supplies.</p>
           </div>
         </div>
       </div>
@@ -133,8 +131,8 @@
         <div class="media block-6 services d-block">
           <div class="icon"><span class="flaticon-collaboration"></span></div>
           <div class="media-body">
-            <h3 class="heading mb-3">Easy To Manage Jobs</h3>
-            <p>A small river named Duden flows by their place and supplies.</p>
+            <h3 class="heading mb-3" style="color:white;">Easy To Manage Jobs</h3>
+            <p style="color:white;">A small river named Duden flows by their place and supplies.</p>
           </div>
         </div>
       </div>
@@ -142,8 +140,8 @@
         <div class="media block-6 services d-block">
           <div class="icon"><span class="flaticon-promotions"></span></div>
           <div class="media-body">
-            <h3 class="heading mb-3">Top Careers</h3>
-            <p>A small river named Duden flows by their place and supplies.</p>
+            <h3 class="heading mb-3" style="color:white;">Top Careers</h3>
+            <p style="color:white;">A small river named Duden flows by their place and supplies.</p>
           </div>
         </div>
       </div>
@@ -151,11 +149,48 @@
         <div class="media block-6 services d-block">
           <div class="icon"><span class="flaticon-employee"></span></div>
           <div class="media-body">
-            <h3 class="heading mb-3">Search Expert Candidates</h3>
-            <p>A small river named Duden flows by their place and supplies.</p>
+            <h3 class="heading mb-3" style="color:white;">Search Expert Candidates</h3>
+            <p style="color:white;">A small river named Duden flows by their place and supplies.</p>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div style="height: 50px;"></div>
+</section>
+
+
+{{!-- For subscribe to newsletter option. --}}
+
+<section class="ftco-section-parallax">
+  <div style="height: 50px;"></div>
+  <div class="parallax-img d-flex align-items-center">
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        {{!-- <div class="col-md-7 text-center heading-section heading-section-white ftco-animate"> --}}
+        <h2>Subcribe to our Newsletter</h2>
+        <p>Hospitals are complex machines but the most efficient ones
+          are simple and easier to navigate than your house, especially in distress. Similarly we help remove Age,
+          Education, and Digital Nativeness Bias which in the medical world are responsible for 7000 deaths annually
+          in USA
+          alone with 3.82B worldwide lost in efficiency due to complicated interfaces.
+          <br><br>
+          Plus we work offline too, meaning, a doctor can send a visual prescription out to the remotest part of the
+          world
+          without being concerned about language and educational barrier.</p>
+        <div class="row d-flex justify-content-center mt-4 mb-4">
+          <div class="col-md-12">
+            <form action="#" class="subscribe-form">
+              <div class="form-group d-flex">
+                <input type="text" class="form-control" placeholder="Enter email address">
+                <input type="submit" value="Opt" class="submit px-3">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="height: 50px;"></div>
   </div>
 </section>
