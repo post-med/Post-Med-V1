@@ -39,7 +39,7 @@
       <a class="nav-item nav-link active" href="/summary">Treatments<span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="#" onclick="openNav()">Profile</a>
       {{/if}}
-      <a class="nav-item nav-link" href="#">About</a>
+      <a class="nav-item nav-link" href="/about">About</a>
       {{#if user}}
       <a class="nav-item nav-link" href="/logout">Sign out</a>
       {{/if}}
@@ -54,18 +54,48 @@
   {{{body}}}
   <script src="/javascripts/script.js"></script>
 
+
+
+
+
+
   {{!-- Adding a Side panel from : https://www.w3schools.com/howto/howto_js_collapse_sidepanel.asp --}}
   {{#if user}}
   <div id="mySidepanel" class="sidepanel">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">About</a>
-    <a href="#">{{user.firstName}} {{user.lastName}} </a>
-    <a href="#">DOB: {{formatDate user.birthDate}} </a>
-    <a href="#">{{user.gender}}</a>
-    <a href="#">{{user.id}} </a>
-    <a href="#">Pregnancy</a>
-    <a href="#">Cancer</a>
+
+    <div class="card text-white" style="max-width: 18rem;">
+      <img src="/images/doggy.jpg" class="card-img-top" alt="...">
+      <h5 class="card-title"><a href="#">{{user.firstName}} {{user.lastName}} </a></h5>
+
+      <a href="#">DOB: {{formatDate user.birthDate}} </a>
+      <a href="#">{{user.gender}}</a>
+      <a href="#">Pregnancy</a>
+      <a href="#">Cancer</a>
+
+    </div>
+
+    <div>
+      <br>
+      <br>
+      <p>DISCLAIMER<p>
+          <br>
+          <p>
+            If you feel like flat Earth theory has gotten unaccountably popular recently, you’re right. According to
+            Google
+            Trends, search interest in the flat Earth conspiracy theory has already had several distinct peaks in the
+            last
+            year. (“The last year” was 2017, not 1519, just to be clear.) It’s funny, weird, and while it’s certainly
+            not at
+            the top of our list of problems as a society, it’s not entirely innocent either. ITS FUCKING CONCERNING.
+          </p>
+
+    </div>
   </div>
+  </div>
+  </div>
+
+
   {{/if}}
 
 

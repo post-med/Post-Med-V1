@@ -20,6 +20,13 @@ a {
   background-image: url("/images/undraw_work_time_lhoj.svg");
   background-size: cover; }
 
+#left-side {
+  padding-right: 70px;
+  padding-left: 70px; }
+
+#signup-form {
+  visibility: hidden; }
+
 #overview {
   background-image: url("/images/Endless-Constellation.svg"); }
 
@@ -31,11 +38,21 @@ a {
 #overview-top {
   background-image: url("/images/Endless-Constellation.svg"); }
 
+.myDetailDonut {
+  width: 100%;
+  object-fit: contain; }
+
 .myOverview {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center; }
+
+#weeklyText {
+  align-content: center;
+  padding: 0 100px;
+  margin-top: 50px;
+  background-image: url("/images/Endless-Constellation.svg"); }
 
 #overview-top2 {
   height: 20vh;
@@ -51,6 +68,8 @@ a {
   /* Stay in place */
   z-index: 1;
   /* Stay on top */
+  align-content: center;
+  justify-content: center;
   top: 0;
   left: 0;
   background-color: #eff1f3;
@@ -112,5 +131,8 @@ footer li {
 .dark-background {
   background: black;
   color: white; }
+
+.card-deck {
+  padding: 100px 150px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -13,7 +13,7 @@ const loginCheck = () => {
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
-const bcryptSalt = 12;
+const bcryptSalt = 12; // Ani: Dominik this is just a random number right?
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -82,6 +82,8 @@ router.post("/signup", (req, res, next) => {
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
 
+    // Ani: This is the new User Schema.
+
     const newUser = new User({
       email,
       password: hashPass,
@@ -93,7 +95,7 @@ router.post("/signup", (req, res, next) => {
     });
 
     newUser
-      .save()
+      .save() // Dominik, What does this do exactly?
       .then(() => {
         req.login(newUser, () => res.redirect("/summary"));
       })
@@ -120,7 +122,6 @@ router.get("/summary", loginCheck(), (req, res, next) => {
   console.log(req.user);
   res.render("overview", {
     arr: [
-      0,
       1,
       2,
       3,
@@ -155,7 +156,8 @@ router.get("/summary", loginCheck(), (req, res, next) => {
       32,
       33,
       34,
-      35
+      35,
+      36
     ],
     user: req.user
   });
@@ -168,6 +170,11 @@ router.get("/weeks", loginCheck(), (req, res, next) => {
   console.log(req.params);
   // const id = req.params.arr;
   res.render("weeks", { user: req.user });
+});
+
+// Ani adding router to the About page
+router.get("/about", (req, res, next) => {
+  res.render("about");
 });
 
 module.exports = router;
