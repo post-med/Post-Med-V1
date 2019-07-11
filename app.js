@@ -80,10 +80,10 @@ hbs.registerHelper("ifvalue", function(conditional, options) {
 
 hbs.registerHelper("formatDate", date => date.toDateString().substring(4));
 
-hbs.registerHelper("randomTips", PregTips => {
-  PregTips[Math.floor(Math.random() * PregTips.length)];
-  return;
-});
+// hbs.registerHelper("randomTips", PregTips => {
+//   PregTips[Math.floor(Math.random() * PregTips.length)];
+//   return;
+// });
 
 // default value for title local
 app.locals.title = "Post-Med";

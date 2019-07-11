@@ -96,7 +96,6 @@ a {
 
 /* The sidepanel links */
 .sidepanel a {
-  padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
   color: #818181;
@@ -168,4 +167,35 @@ footer li {
 
 .addactivity {
   background-image: url("/images/Endless-Constellation.svg");
+}
+
+// .doggy-frame {
+//   position: absolute;
+//   height: 100%;
+//   width: 100%;
+//   object-fit: contain;
+//}
+.doggy-container {
+  height: 300px;
+  width: 300px;
+}
+
+.giphy-embed {
+  height: 100%;
+  width: 100%;
+}
+
+.disclaimer {
+  text-align: justify;
+  line-height: 140%;
+}
+.sidepanelText a {
+  padding: 5px 0 2px 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+#weeklyText {
+  font-size: 18px;
+  text-align: center;
 }
