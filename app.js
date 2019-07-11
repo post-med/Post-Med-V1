@@ -67,9 +67,9 @@ hbs.registerHelper("ifUndefined", (value, options) => {
 });
 
 // Not using this atm.
-// hbs.registerHelper("stringy", chartText => {
-//   return JSON.stringify(chartText);
-// });
+hbs.registerHelper("stringy", chartText => {
+  return JSON.stringify(chartText);
+});
 
 hbs.registerHelper("ifvalue", function(conditional, options) {
   if (options.hash.value === conditional) {

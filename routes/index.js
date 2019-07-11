@@ -121,51 +121,11 @@ router.get("/partial", (req, res, next) => {
 // This is the redirect for the login checker, Dom added a middle ware function login
 // Checker to show the page.
 router.get("/summary", loginCheck(), (req, res, next) => {
-  Activity.find({ startTime: { $gte: new Date("2019-06-17") } })
+  Activity.find()
     .then(data => {
       const mutatedData = sortDatesByCalendarWeeks(data);
-      // res.json(mutatedData);
       res.render("overview", {
         mutatedData,
-        // arr: [mutatedData.id],
-        // arr: [
-        //   0,
-        //   1,
-        //   2,
-        //   3,
-        //   4,
-        //   5,
-        //   6,
-        //   7,
-        //   8,
-        //   9,
-        //   10,
-        //   11,
-        //   12,
-        //   13,
-        //   14,
-        //   15,
-        //   16,
-        //   17,
-        //   18,
-        //   19,
-        //   20,
-        //   21,
-        //   22,
-        //   23,
-        //   24,
-        //   25,
-        //   26,
-        //   27,
-        //   28,
-        //   29,
-        //   30,
-        //   31,
-        //   32,
-        //   33,
-        //   34,
-        //   35
-        // ],
         user: req.user
       });
     })
@@ -174,8 +134,6 @@ router.get("/summary", loginCheck(), (req, res, next) => {
 
 // Ani adding router to the weekly page
 router.get("/weeks", loginCheck(), (req, res, next) => {
-  console.log(req.user);
-  console.log(req.params);
   const PregTips = [
     "Even when you're still trying to conceive, it's smart to start taking prenatal vitamins. Your baby's neural cord, which becomes the brain and spinal cord, develops within the , so it's important you get essential nutrients – like folic acid, calcium, and iron – from the very start.",
     "Staying active is important for your general health and can help you reduce stress, control your weight, improve circulation, boost your mood, and sleep better. Take a  or walk at least 15-20 minutes every day at a moderate pace, in cool, shaded areas or indoors in order to prevent overheating.",
@@ -190,6 +148,36 @@ router.get("/weeks", loginCheck(), (req, res, next) => {
   res.render("weeks", {
     user: req.user,
     tip: PregTips[Math.floor(Math.random() * PregTips.length)]
+  });
+});
+// Dominik adding router to the weekly page
+router.get("/weeks/:id", loginCheck(), (req, res, next) => {
+  const id = req.params.id;
+  Activity.find().then(data => {
+    const wholeData = sortDatesByCalendarWeeks(data);
+    const mutatedData = wholeData[id];
+    const PregTips = [
+      "Even when you're still trying to conceive, it's smart to start taking prenatal vitamins. Your baby's neural cord, which becomes the brain and spinal cord, develops within the , so it's important you get essential nutrients – like folic acid, calcium, and iron – from the very start.",
+      "Staying active is important for your general health and can help you reduce stress, control your weight, improve circulation, boost your mood, and sleep better. Take a  or walk at least 15-20 minutes every day at a moderate pace, in cool, shaded areas or indoors in order to prevent overheating.",
+      "Pilates, yoga, swimming, and walking are also great activities for most pregnant women, but be sure to check with your doctor first before starting any new routine. Aim for 30 minutes of exercise most days of the week. Listen to your body, though, and don't overdo it.",
+      "Determined to have a dobula? Counting on that epidural? Write down your wishes and give a copy to everyone involved with the delivery. According to the American Pregnancy Association",
+      "attending a childbirth class will help you feel more prepared for delivery. Not only will you have the chance to learn more about childbirth and infant care, but you can ask specific questions and voice any concerns. You'll also become more acquainted with the facility and its staff.",
+      "Because of their link to birth defects, miscarriage, and other problems, you should avoid tobacco, alcohol, illicit drugs, and even solvents such as paint thinners and nail polish remover while pregnant. Smoking cigarettes, for example, decreases oxygen flow to your baby",
+      "Certain essential oils can cause uterine contractions, especially during the first and second trimester, so check with your massage therapist to make sure only safe ones are being used. On the taboo list: juniper, rosemary, and clary sage.",
+      "In addition to drinking 8-10 glasses of water each day, you should eat five or six well-balanced meals with plenty of folate-rich foods like fortified cereals, asparagus, lentils, wheat germ, oranges, and orange juice."
+    ];
+
+    console.log(mutatedData);
+
+    res
+      .render("weeks", {
+        user: req.user,
+        summary: mutatedData.summary,
+        tip: PregTips[Math.floor(Math.random() * PregTips.length)]
+      })
+      .catch(err => {
+        console.log(err);
+      });
   });
 });
 

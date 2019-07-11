@@ -19,3 +19,7 @@ function closeNav() {
 function showSignup() {
   document.getElementById("signup-form").style.visibility = "visible";
 }
+
+[...document.querySelectorAll("#overview div")].forEach((el, index) => {
+  el.onclick = () => document.location.replace(`/weeks/${index}`);
+});

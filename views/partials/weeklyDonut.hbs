@@ -1,7 +1,4 @@
 <canvas id="myChart-{{this.id}}" width="350" height="350"></canvas>
-<a href="/">info</a>
-
-{{!-- window.location.replace("url") --}}
 
 <script>
 
@@ -40,6 +37,7 @@
   var ctx = document.getElementById('myChart-{{this.id}}').getContext('2d');
   // chart creation
 
+
   var myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
@@ -68,8 +66,5 @@
       display: true,
       text: "{{this.id}}"
     }
-
-
-
   })
 </script>
