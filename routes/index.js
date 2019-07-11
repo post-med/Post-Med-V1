@@ -3,6 +3,7 @@ const passport = require("passport");
 const router = express.Router();
 const User = require("../models/User");
 const Activity = require("../models/Activity");
+const sortDatesByCalendarWeeks = require("../server-scripts/summaryCalc");
 
 const loginCheck = () => {
   return (req, res, next) => {
@@ -122,47 +123,50 @@ router.get("/partial", (req, res, next) => {
 router.get("/summary", loginCheck(), (req, res, next) => {
   Activity.find({ startTime: { $gte: new Date("2019-06-17") } })
     .then(data => {
+      const mutatedData = sortDatesByCalendarWeeks(data);
+      // res.json(mutatedData);
       res.render("overview", {
-        arr: [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8,
-          9,
-          10,
-          11,
-          12,
-          13,
-          14,
-          15,
-          16,
-          17,
-          18,
-          19,
-          20,
-          21,
-          22,
-          23,
-          24,
-          25,
-          26,
-          27,
-          28,
-          29,
-          30,
-          31,
-          32,
-          33,
-          34,
-          35
-        ],
-        user: req.user,
-        data
+        mutatedData,
+        // arr: [mutatedData.id],
+        // arr: [
+        //   0,
+        //   1,
+        //   2,
+        //   3,
+        //   4,
+        //   5,
+        //   6,
+        //   7,
+        //   8,
+        //   9,
+        //   10,
+        //   11,
+        //   12,
+        //   13,
+        //   14,
+        //   15,
+        //   16,
+        //   17,
+        //   18,
+        //   19,
+        //   20,
+        //   21,
+        //   22,
+        //   23,
+        //   24,
+        //   25,
+        //   26,
+        //   27,
+        //   28,
+        //   29,
+        //   30,
+        //   31,
+        //   32,
+        //   33,
+        //   34,
+        //   35
+        // ],
+        user: req.user
       });
     })
     .catch(err => console.log(err));

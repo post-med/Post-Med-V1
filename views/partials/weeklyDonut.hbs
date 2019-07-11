@@ -1,4 +1,7 @@
-<canvas id="myChart-{{this}}" width="350" height="350"></canvas>
+<canvas id="myChart-{{this.id}}" width="350" height="350"></canvas>
+<a href="/">info</a>
+
+{{!-- window.location.replace("url") --}}
 
 <script>
 
@@ -34,7 +37,7 @@
 
   Chart.defaults.global.legend.display = false;
   var baseUrl = "http://localhost:8000";
-  var ctx = document.getElementById('myChart-{{this}}').getContext('2d');
+  var ctx = document.getElementById('myChart-{{this.id}}').getContext('2d');
   // chart creation
 
   var myChart = new Chart(ctx, {
@@ -43,27 +46,27 @@
       labels: ['Medication', 'Visitation', 'Excercise', 'Rest'],
       datasets: [{
         label: '# of Votes',
-        data: [1, 1, 2, 8],
-        backgroundColor: [
-          '#D77A61',
-          '#DBD3D8',
-          '#D8B4A0',
-          '#EFF1F3'
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 0
-      }]
-    },
+        data: [{{ this.summary }}],
+      backgroundColor: [
+        '#D77A61',
+        '#DBD3D8',
+        '#D8B4A0',
+        '#EFF1F3'
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+      ],
+      borderWidth: 0
+    }]
+  },
     centerText: {
       display: true,
-      text: "{{@index}}"
+      text: "{{this.id}}"
     }
 
 
