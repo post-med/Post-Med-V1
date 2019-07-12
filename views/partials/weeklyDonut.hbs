@@ -41,7 +41,7 @@
   var myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
-      labels: ['Medication', 'Visitation', 'Excercise', 'Rest'],
+      labels: ['Medication', 'Doctor Visits', 'Courses', 'Work', 'Rest'],
       datasets: [{
         label: '# of Votes',
         data: [{{ this.summary }}],
