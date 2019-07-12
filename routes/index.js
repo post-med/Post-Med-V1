@@ -173,7 +173,7 @@ router.get("/weeks/:id", loginCheck(), (req, res, next) => {
       .render("weeks", {
         user: req.user,
         summary: mutatedData.summary,
-        tableContent: mutatedData.list,
+        tableContent: mutatedData.list.slice(0, 3),
         tip: PregTips[Math.floor(Math.random() * PregTips.length)]
       })
       .catch(err => {
