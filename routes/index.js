@@ -167,12 +167,13 @@ router.get("/weeks/:id", loginCheck(), (req, res, next) => {
       "In addition to drinking 8-10 glasses of water each day, you should eat five or six well-balanced meals with plenty of folate-rich foods like fortified cereals, asparagus, lentils, wheat germ, oranges, and orange juice."
     ];
 
-    console.log(mutatedData);
+    console.log(mutatedData.list);
 
     res
       .render("weeks", {
         user: req.user,
         summary: mutatedData.summary,
+        tableContent: mutatedData.list,
         tip: PregTips[Math.floor(Math.random() * PregTips.length)]
       })
       .catch(err => {

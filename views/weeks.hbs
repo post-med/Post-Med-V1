@@ -24,8 +24,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row"> <img src="/images/Mon.png" height=50 width=50></th>
+                    <tr id="monClick">
+                        <th scope="row"> <img src="/images/Mon.png" height=50 width=50 id="monClick"></th>
                         <td><img src="/images/medicine2.png" height=50 width=50>
                             <img src="/images/doctor.png" height=50 width=50>
                             <img src="/images/rest.png" height=50 width=50>
@@ -33,6 +33,19 @@
                         </td>
 
                     </tr>
+                    {{!-- here comes the expandable table --}}
+                    {{#each tableContent}}
+                    <tr class="monExpand" style="display: none">
+                        <th>
+                            <p>{{dateConvert startTime}} to {{dateConvert endTime}}</p>
+                        </th>
+                        <td>
+                            <p>{{info}}</p>
+                        </td>
+
+                    </tr>
+                    {{/each}}
+                    {{!-- this is where it ends --}}
                     <tr>
                         <th scope="row"><img src="/images/Tue.png" height=50 width=50></th>
                         <td>
